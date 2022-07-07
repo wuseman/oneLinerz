@@ -1,0 +1,87 @@
+/* Dark mode changes */
+[data-md-color-scheme="dracula"] {
+  .md-typeset {
+    .tabbed-set > .tabbed-labels {
+      box-shadow: 0 px2rem(-1px) var(--md-default-fg-color--lighter) inset;
+    }
+  }
+}
+
+/* Style code blocks to fill full tab,
+   but otherwise, pad content. */
+.md-typeset {
+  .tabbed-alternate {
+    &.tabbed-set .tabbed-control {
+      width: px2rem(40px);
+
+      &[hidden] {
+        width: px2rem(24px);
+        opacity: 0;
+      }
+    }
+
+    &.tabbed-set > .tabbed-content > .tabbed-block {
+      padding: 0 px2rem(12px);
+      overflow: hidden;
+
+      > {
+        pre,
+        .codehilite,
+        .codehilitetable,
+        .highlight,
+        .highlighttable {
+
+          &:only-child {
+
+            span.filename {
+              margin-top: 0;
+            }
+
+            margin-right: px2rem(-24px);
+            margin-left: px2rem(-24px);
+            padding-right: px2rem(12px);
+            padding-left: px2rem(12px);
+          }
+        }
+
+        mermaid-div:only-child {
+          margin-right: px2rem(-24px);
+          margin-left: px2rem(-24px);
+          padding-right: px2rem(12px);
+          padding-left: px2rem(12px);
+        }
+      }
+    }
+  }
+}
+
+/* Ignore mobile overflow styling that extends the tab bar */
+@include break-to-device(mobile) {
+  [dir=ltr] .md-content__inner > .tabbed-set .tabbed-labels {
+    padding-left: 0;
+  }
+
+  .md-content__inner > .tabbed-set .tabbed-labels {
+    max-width: 100%;
+    margin: 0;
+    padding-inline-start: 0;
+    scroll-padding-inline-start: 0;
+
+    &::after {
+      padding-inline-end: 0;
+      content: none;
+    }
+
+    // Tabbed control previous
+    ~ .tabbed-control--prev {
+      margin-inline-start: 0;
+      padding-inline-start: 0;
+    }
+
+    // Tabbed control next
+    ~ .tabbed-control--next {
+      margin-inline-end: 0;
+      padding-inline-end: 0;
+    }
+  }
+}

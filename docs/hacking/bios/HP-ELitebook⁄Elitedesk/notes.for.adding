@@ -1,0 +1,150 @@
+recovery.mft 
+recovery.sig 
+boot.sdi 
+\efi\bootx64.efi 
+\efi\boot\microsoft\bcd 
+\sources\boot.wim
+
+## Will create a txt file with serial bumber as
+
+     BIOSConfig 1.0
+     ;
+     ;     Originally created by BIOS Configuration Utility
+     ;     Version: 4.0.32.1
+     ;     Date="2022/05/12" Time="05:30:47" UTC="2"
+     ;
+     Serial Number
+     wusemanhackedthiserial
+     06:49 12/05/2022
+
+C:\SWSetup\SP107705222>BiosConfigUtility64.exe /get:"serial_number"
+<BIOSCONFIG Version="" Computername="DESKTOP-BS" Date="2022/05/12" Time="06:49:12" UTC="2">
+        <SUCCESS msg="No errors occurred" />
+        <Information msg="BCU return value" real="0" translated="0" />
+</BIOSCONFIG>
+
+
+
+C:\SWSetup\SP107705222>BiosConfigUtility64.exe
+
+HP BIOS Configuration Utility 4.0.32.1
+(C) Copyright 2005-2016 HP Development Company, L.P.
+Usage:
+
+BiosConfigUtility {option}
+
+ /get:"filename"        Saves the system BIOS settings to the given file.
+                        If filename is not provided, output is to console.
+ /set:"filename"        Applies system BIOS setting changes from the provided
+                        configuration file.
+ /verbose               (With Set) Display details about each setting such as
+                        failure code and reason.
+ /warningaserr          (With Set) Any settings skipped due to warnings
+                        will cause return error code 13.
+ /setdefaults           Sets BIOS settings to their default values.
+ /cpwdfile:"filename"   Specifies a file with the current BIOS Setup Password.
+                        Use HPQPswd.exe to create the password file.
+ /npwdfile:"filename"   Specifies a file with a new password to set.
+                        To remove the password, use /nspwdfile:"".
+                        Use HPQPswd.exe to create the password file.
+ /getvalue:"setting"    Retrieves and displays the value of the given setting.
+ /setvalue:"setting","value"
+                        Applies the new value to the given setting.
+ /unicode               Checks for Unicode password support and exits with
+                        return code.
+ /l or /log             Generates log files in Logs subfolder.
+ /logpath:"file path"   Saves the logs to the given file path
+ /? or /help            Displays this help message.
+
+/ot:value               Provide OneTime Value
+/ar:value               Provide AntiReplay Value
+/uid:value              Provide MachineID Value
+/pkey:"*.pfx"           Provide a private key string
+/pkeypwd:password       Password to private key
+
+/addauthstr             Generate auth string to addauthstr.txt
+
+
+C:\SWSetup\SP107705222>BiosConfigUtility64.exe /get:"current_bios.txt"
+<BIOSCONFIG Version="" Computername="DESKTOP-" Date="2022/05/12" Time="05:27:37" UTC="2">
+        <SUCCESS msg="No errors occurred" />
+        <Information msg="BCU return value" real="0" translated="0" />
+</BIOSCONFIG>
+
+C:\SWSetup\SP107705222>
+
+
+### Error /Permission Denied
+
+C:\SWSetup\SP107705222>BiosConfigUtility64.exe /set:"C:\Users\wuseman\Desktop\bios\custom_wuseman_bios.txt"
+<BIOSCONFIG Version="" Computername="DESKTOP-F3" Date="2022/05/12" Time="05:38:30" UTC="2">
+SPM: Not Provisioned.
+BEAM mode: Disabled.
+        <SETTING changeStatus="fail" name="Save/Restore MBR of System Hard Drive" reason="Not supported" returnCode="1">
+                <OLDVALUE><![CDATA[Disable]]></OLDVALUE>
+                <NEWVALUE><![CDATA[Enable]]></NEWVALUE>
+        </SETTING>
+        <ERROR msg="An operation failed" />
+        <ERROR msg="BCU return value" real="13" translated="13" />
+</BIOSCONFIG>
+
+<BIOSCONFIG Version="" Computername="DESKTOP-FBS" Date="2022/05/12" Time="05:37:16" UTC="2">
+SPM: Not Provisioned.
+BEAM mode: Disabled.
+        <SETTING changeStatus="fail" name="MS Digital Marker" reason="Invalid setting value" detail="Value is not within minimum and maximum length" returnCode="21">
+                <OLDVALUE><![CDATA[010000000]]></OLDVALUE>
+                <NEWVALUE><![CDATA[010000002wuseman]]></NEWVALUE>
+        </SETTING>
+        <ERROR msg="An operation failed" />
+        <ERROR msg="BCU return value" real="13" translated="13" />
+</BIOSCONFIG>
+
+<BIOSCONFIG Version="" Computername="DESKTOP-FBS" Date="2022/05/12" Time="05:35:18" UTC="2">
+SPM: Not Provisioned.
+BEAM mode: Disabled.
+        <SETTING changeStatus="fail" name="MS Digital Marker" reason="Access denied" returnCode="6">
+                <OLDVALUE><![CDATA[01wusemanpower4A475150332ftw2]]></OLDVALUE>
+                <NEWVALUE><![CDATA[]]></NEWVALUE>
+        </SETTING>
+        <SETTING changeStatus="pass" name="Asset Tracking Number" reason="Success" returnCode="0">
+                <OLDVALUE><![CDATA[]]></OLDVALUE>
+                <NEWVALUE><![CDATA[https://github.com/wuseman - GPS Enable]]></NEWVALUE>
+        </SETTING>
+        <SETTING changeStatus="pass" name="Ownership Tag" reason="Success" returnCode="0">
+                <OLDVALUE><![CDATA[]]></OLDVALUE>
+                <NEWVALUE><![CDATA[https://github.com/wuseman - GPS Enable]]></NEWVALUE>
+        </SETTING>
+        <SETTING changeStatus="fail" name="Manufacturing Programming Mode" reason="Access denied" returnCode="6">
+                <OLDVALUE><![CDATA[Lock]]></OLDVALUE>
+                <NEWVALUE><![CDATA[Unlock]]></NEWVALUE>
+        </SETTING>
+        <ERROR msg="An operation failed" />
+        <ERROR msg="BCU return value" real="13" translated="13" />
+</BIOSCONFIG>
+
+
+
+C:\SWSetup\SP107705222>BiosConfigUtility64.exe /set:"C:\Users\wuseman\Desktop\bios\custom_wuseman_bios.txt"
+<BIOSCONFIG Version="" Computername="DESKTOP-FBS" Date="2022/05/12" Time="05:33:35" UTC="2">
+SPM: Not Provisioned.
+BEAM mode: Disabled.
+        <SETTING changeStatus="pass" name="Wireless Manageability" reason="Success" returnCode="0">
+                <OLDVALUE><![CDATA[Disable]]></OLDVALUE>
+                <NEWVALUE><![CDATA[Enable]]></NEWVALUE>
+        </SETTING>
+        <SETTING changeStatus="pass" name="DNS Addresses" reason="Success" returnCode="0">
+                <OLDVALUE><![CDATA[]]></OLDVALUE>
+                <NEWVALUE><![CDATA[XX2.168.X.1]]></NEWVALUE>
+        </SETTING>
+        <SETTING changeStatus="pass" name="Data transfer timeout" reason="Success" returnCode="0">
+                <OLDVALUE><![CDATA[100]]></OLDVALUE>
+                <NEWVALUE><![CDATA[60]]></NEWVALUE>
+        </SETTING>
+        <SETTING changeStatus="pass" name="Force Default IP Configuration" reason="Success" returnCode="0">
+                <OLDVALUE><![CDATA[Enable]]></OLDVALUE>
+                <NEWVALUE><![CDATA[Disable]]></NEWVALUE>
+        </SETTING>
+        <SUCCESS msg="No errors occurred" />
+        <REBOOT msg="Reboot required to perform BIOS settings updates.May need a shutdown if settings not take effect." />
+        <Information msg="BCU return value" real="0" translated="0" />
+</BIOSCONFIG>

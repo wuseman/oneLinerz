@@ -1,0 +1,192 @@
+site_name: Nr1 (wuseman's wiki)
+site_author: wuseman
+site_description: >-
+  The personal website of wuseman, it's the Nr1 wiki for cool tips and trikes for all kind of hacks you can imagine
+copyright: |
+  Copyright &copy; 2015 - 2022 <a href="https://github.com/wuseman"  target="_blank" rel="noopener">wuseman</a>
+
+# Repository
+repo_name: wuseman/oneLinerz
+repo_url: https://github.com/wuseman/oneLinerz
+site_url: https://www.nr1.nu
+repo_name: ""
+repo_url: "https://github.com/wuseman/oneLinerz"
+docs_dir: docs/
+#site_dir: site
+edit_uri: docs/src/markdown
+
+copyright: |
+  Copyright &copy; 2015 - 2022 <a href="https://github.com/wuseman"  target="_blank" rel="noopener">wuseman</a>
+
+# Configuration
+theme:
+  name: material
+  custom_dir: !ENV [THEME_DIR, "material"]
+  static_templates:
+    - 404.html
+  include_search_page: false
+  search_index_only: true
+  language: en
+  features:
+    - content.code.annotate
+    # - content.tabs.link
+    - content.tooltips
+    - header.autohide
+    #- navigation.expand
+    - navigation.indexes
+    - navigation.instant
+    - navigation.prune
+    - navigation.sections
+    - navigation.tabs
+    # - navigation.tabs.sticky
+    - navigation.top
+    - navigation.tracking
+    - search.highlight
+    - search.share
+    - search.suggest
+    - toc.follow
+    # - toc.integrate
+
+  features:
+     - content.code.annotate
+     - content.tabs.link
+     - content.tooltips
+    # - header.autohide
+    # - navigation.expand
+     - navigation.indexes
+     - navigation.instant
+    # - navigation.prune
+    # - navigation.sections
+     - navigation.tabs
+     - navigation.tabs.sticky
+     - navigation.top
+     - navigation.tracking
+     - search.highlight
+     - search.share
+     - search.suggest
+#     - toc.follow
+#     - toc.integrate
+  highlightjs: true
+  hljs_languages:
+    - yaml
+    - rust
+    - bash
+    - console
+    - shell
+    - python
+    - perl
+    - tcl 
+    - powershell
+    - ardunio
+    - php
+    - json
+    - kotlin
+  font:
+    text: Roboto
+    code: Roboto Mono
+  favicon: assets/favicon.png
+  icon:
+    logo: logo
+  palette:
+    - scheme: dracula
+      primary: deep purple
+      accent: deep purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+    - scheme: default
+      primary: black       # Top Bar
+      accent: deep purple              # SWelector
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+
+plugins:
+  - tags
+  - search:
+      lang: en
+      lang: sv
+      min_search_length: 3
+      indexing: 'full'
+  - pdf-export
+  - rss:
+      abstract_chars_count: 160  # -1 for full content
+      categories:
+        - tags
+      comments_path: "#__comments"
+      date_from_meta:
+        as_creation: "date"
+        as_update: false
+        datetime_format: "%Y-%m-%d %H:%M"
+      enabled: true
+      feed_ttl: 1440
+      image: https://upload.wikimedia.org/wikipedia/commons/thumb/4/43/Feed-icon.svg/128px-Feed-icon.svg.png
+      length: 20
+      pretty_print: false
+      match_path: ".*"
+      url_parameters:
+        utm_source: "documentation"
+        utm_medium: "RSS"
+        utm_campaign: "feed-syndication"
+  - git-revision-date-localized:
+      enable_creation_date: true
+      type: date
+  - git-revision-date:
+      enabled_if_env: CI
+  - minify:
+      minify_html: true
+
+# Customization
+extra:
+  version: 1.0
+  analytics:
+    provider: google
+    property: G-B5KK88V0K4
+  social:
+    - icon: fontawesome/brands/github
+      link: https://github.com/wuseman
+    - icon: fontawesome/brands/twitter
+      link: https://twitter.com/wuseman1
+
+
+extra_css:
+  - assets/stylesheets/wuseman/katex.min.css ### For right menu in wikis
+  - assets/stylesheets/wuseman/extra-e384f43f0f.css ### For Dracula
+
+# Extensions
+markdown_extensions:
+  - abbr
+  - admonition
+  - attr_list
+  - def_list
+  - footnotes
+  - meta
+  - md_in_html
+  - toc:
+      permalink: true
+  - pymdownx.arithmatex:
+      generic: true
+  - pymdownx.betterem:
+      smart_enable: all
+  - pymdownx.caret
+  - pymdownx.details
+  - pymdownx.emoji:
+      emoji_generator: !!pytho/name:materialx.emoji.to_svg
+      emoji_index: !!python/name:materialx.emoji.twemoji
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.keys
+  - pymdownx.magiclink:
+      repo_url_shorthand: false
+      user: wuseman
+      repo: oneLinerz
+  - pymdownx.mark
+  - pymdownx.smartsymbols
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - pymdownx.tilde
+
+
